@@ -1,0 +1,42 @@
+.name "Sample Net"
+.type PN
+
+.places
+g1
+r1
+p4
+r2
+g2
+r3
+g3
+g4
+r4
+exit
+exit
+exit
+exit
+g5.1
+g5.4
+g5.3
+
+.transitions
+gr1
+rg1
+gr2
+rg2
+rg3
+gr3
+gr4
+rg4
+
+.flows
+gr1: {2*g1, 2*g5.1} -> {2*r1, 1*exit}
+rg1: {1*exit, 2*r1} -> {2*g1, 2*g5.1}
+gr2: {2*g2} -> {2*r2, 1*exit}
+rg2: {1*exit, 2*r2} -> {2*g2}
+rg3: {1*r3, 1*exit} -> {1*g3, 1*g5.3}
+gr3: {1*g3, 1*g5.3} -> {1*r3, 1*exit}
+gr4: {1*g4, 1*g5.4} -> {1*r4, 1*exit}
+rg4: {1*r4, 1*exit} -> {1*g4, 1*g5.4}
+
+.initial_marking {2*r1, 2*r2, 1*r3, 1*g4, 1*g5.4}
